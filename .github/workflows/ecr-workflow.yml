@@ -41,4 +41,5 @@ jobs:
           IMAGE_TAG: latest
         run: |
           docker build -t $ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REPOSITORY:$IMAGE_TAG          
+          aws elasticbeanstalk update-environment --application-name hello-world --environment-name HelloWorld-env --version-label hello-world-source
